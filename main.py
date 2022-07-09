@@ -33,7 +33,7 @@ if page=='Intro page':
         df1.rename(columns={"employment_type":"Employees_count"},inplace=True)
         colors=['royalblue','cyan','lightcyan']
         fig1 = px.pie(df1, values='Employees_count', names='work_year',color_discrete_sequence=colors,title='Employee Count on each year')
-        fig1.update_layout(xaxis=dict(showgrid=False),yaxis=dict(showgrid=False))
+        fig1.update_layout(xaxis=dict(showgrid=False),yaxis=dict(showgrid=False),paper_bgcolor="rgba(0,0,0,0)", plot_bgcolor="rgba(0,0,0,0)")
         st.plotly_chart(fig1)
         # ----
         # Employees count by employment type
@@ -41,7 +41,7 @@ if page=='Intro page':
         df5=df5.rename(columns={'work_year':'Employee Count'})
         df5=df5.rename(columns={'employment_type':'Employment Type'})
         fig=px.bar(df5,x=df5['Employee Count'],y=df5['Employment Type'],color_discrete_sequence=['#50EBEC'],orientation="h",title="Employees count by employment type")
-        fig.update_layout(xaxis=dict(showgrid=False),yaxis=dict(showgrid=False))
+        fig.update_layout(xaxis=dict(showgrid=False),yaxis=dict(showgrid=False),paper_bgcolor="rgba(0,0,0,0)", plot_bgcolor="rgba(0,0,0,0)")
         st.plotly_chart(fig)
 
 
@@ -52,13 +52,13 @@ if page=='Intro page':
         df2['work_year']=df2['work_year'].astype(str)
         df2=df2.rename(columns={'experience_level':'count'})
         fig=px.bar(df2,x='work_year',y='count',color='company_size',color_discrete_sequence=colors,title='Count of employees on each year based on compay size')
-        fig.update_layout(xaxis=dict(showgrid=False),yaxis=dict(showgrid=False))
+        fig.update_layout(xaxis=dict(showgrid=False),yaxis=dict(showgrid=False),paper_bgcolor="rgba(0,0,0,0)", plot_bgcolor="rgba(0,0,0,0)")
         st.plotly_chart(fig)
         # Employees Count based on company size
         df1=df.groupby('company_size').count().reset_index()
         df1=df1.rename(columns={'work_year':'Employee_count'})
         fig2=px.pie(df1,names='company_size',values='Employee_count',hole=0.5,color_discrete_sequence=colors,title='Employees Count based on company size')
-        fig2.update_layout(xaxis=dict(showgrid=False),yaxis=dict(showgrid=False))
+        fig2.update_layout(xaxis=dict(showgrid=False),yaxis=dict(showgrid=False),paper_bgcolor="rgba(0,0,0,0)", plot_bgcolor="rgba(0,0,0,0)")
         st.plotly_chart(fig2)
 if page=='Salary Analysis':
     col1,col2,col3=st.columns(3)
@@ -120,7 +120,7 @@ if page=='Salary Analysis':
         colors=['#151B54',"LightSeaGreen",'lightcyan','royalblue','cyan']
         fig=px.line(x=df2['company_location'],y=df2['Salary Average'],color_discrete_sequence=colors,labels=dict(x="Country", y="Salary"),color=px.Constant("Average Salary"),title='Top 5 countries by maximum salary')#,name='Average Salary')
         fig.add_bar(x=df1['company_location'],y=df1['Maximum Salary'],name='Maximum Salary',marker=dict(color='#43BFC7'))
-        fig.update_layout(xaxis=dict(showgrid=False),yaxis=dict(showgrid=False))
+        fig.update_layout(xaxis=dict(showgrid=False),yaxis=dict(showgrid=False),paper_bgcolor="rgba(0,0,0,0)", plot_bgcolor="rgba(0,0,0,0)")
         st.plotly_chart(fig)
         # Average Salary on each year
         df4=df.groupby(by='work_year').mean().reset_index()
@@ -128,7 +128,7 @@ if page=='Salary Analysis':
         df4['Average Salary']=df4['Average Salary'].astype(int)
         df4['work_year']=df4['work_year'].astype(str)
         fig=px.bar(df4,y=df4['work_year'],x=df4['Average Salary'],color_discrete_sequence=['#77BFC7'],orientation="h",title="Average Salary by year")
-        fig.update_layout(xaxis=dict(showgrid=False),yaxis=dict(showgrid=False))
+        fig.update_layout(xaxis=dict(showgrid=False),yaxis=dict(showgrid=False),paper_bgcolor="rgba(0,0,0,0)", plot_bgcolor="rgba(0,0,0,0)")
         st.plotly_chart(fig)
     with col2:
         # Company size salary contribution
@@ -143,6 +143,6 @@ if page=='Salary Analysis':
         df2['Job Title']=df2.index
         df3=df2.head(10)
         fig=px.bar(df3,x='Job Title',y='salary_in_usd',title='Top 10 AI jobs by average salary',color='salary_in_usd')
-        fig.update_layout(xaxis=dict(showgrid=False),yaxis=dict(showgrid=False))
+        fig.update_layout(xaxis=dict(showgrid=False),yaxis=dict(showgrid=False),paper_bgcolor="rgba(0,0,0,0)", plot_bgcolor="rgba(0,0,0,0)")
         st.plotly_chart(fig)
  
