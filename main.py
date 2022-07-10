@@ -182,6 +182,7 @@ if page=='Analysis on location':
         st.header(" ")
         st.markdown("<h2>Total Salary</h2>",unsafe_allow_html=True)
         st.subheader(str(df3["salary_in_usd"].sum())+" USD")
+        st.markdown("------")
         st.markdown("<h2>Average Salary</h2>",unsafe_allow_html=True)
         st.subheader(str(df3["salary_in_usd"].mean())+" USD")  
 
