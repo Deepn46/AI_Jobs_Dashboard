@@ -184,6 +184,8 @@ if page=='Analysis on location':
         st.subheader(str(df3["salary_in_usd"].sum())+" USD")
         st.markdown("<h2>Average Salary</h2>",unsafe_allow_html=True)
         st.subheader(str(df3["salary_in_usd"].mean())+" USD")  
+
+    st.markdown("-----")
     # Analysis based on company size      
     
     st.header("Analysis on Company Size")
